@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Number Guessing Game</h1>
+        <p>{{ game_state.message }}</p>
+        {% if not game_state.game_over %}
+            <form method="post">
+                {% csrf_token %}
+                <input type="number" name="guess" min="1" max="100" required>
+                <button type="submit">Submit Guess</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Summary</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Summary</h1>
+        <p>You played {{ game_state.rounds }} rounds.</p>
+        <p>Your total score is {{ game_state.score }}.</p>
+        <a href="{% url 'start_game' %}">
+            <button>Start New Game</button>
+        </a>
+    </div>
+</body>
+</html>
